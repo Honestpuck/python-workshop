@@ -2,7 +2,7 @@
 
 ##### Tony Williams <br/> Systems Engineer
 
-Please download http://bit.ly/xw_19
+Please download https://bit.ly/xw19-python
 
 ### What We Will Talk About
 
@@ -62,7 +62,7 @@ result of any operation with a floating point number is always a floating point 
 The function `type` returns the type of a number.
 </div>
 
-###
+### More Numbers
 
 The equal sign (=) is used to assign a value to a variable. Afterwards,
 no result is displayed before the next interactive prompt.
@@ -85,9 +85,7 @@ Traceback (most recent call last):
 NameError: name 'n' is not defined
 ```
 
-###
-
-#### Lists and iteration
+### Lists and iteration
 
 ``` python
 a_list = [1, 2, 3, 45]
@@ -112,17 +110,10 @@ print(show2)
 Lists are a way of collecting values together. Notice that the first value in the
 list is number zero. You can count from the end using minus numbers and the colon
 operator allows you to "slice" the list.
+
 A note here on strings - strings are any text enclosed in quotes. You can actually use
 either single or double quotes to surround them. If you need to use a quote in a string
 you can escape it with a backslash.
-</div>
-
-###
-
-#### Moving On To IPython
-
-<div class="notes">
-At this point let's move on to a better Python interpreter - IPython.
 </div>
 
 ### Starting IPython
@@ -135,6 +126,8 @@ At this point let's move on to a better Python interpreter - IPython.
 | ipython --help     | IPython man page                                  |
 
 <div class="notes">
+At this point let's move on to a better Python interpreter - IPython.
+
 IPython has sort of been renamed Jupyter, so we use the jupyter name for
 some functions.
 </div>
@@ -224,12 +217,21 @@ for x in collection:
     print(x)
 ```
 
+```python
+[print(i) for i in collection]
+```
+
 ``` python
 list_of_lists = [ [1, 2, 3], [4, 5, 6], [7, 8, 9]]
 for list in list_of_lists:
     for x in list:
         print(x)
 ```
+<div class="notes">
+We saw looping over a  list earlier. Here we see the same thing done with
+what's called a list comprehension. Finally, we see how to iterate over a list
+of lists.
+</div>
 
 ### Functions
 
@@ -252,8 +254,6 @@ times_two(21)
 
 ### Running Commands
 
-#### Subprocess module
-
 Call external system commands
 
 ```python
@@ -272,10 +272,12 @@ ret.returncode
 If we want to run a CLI command we can do that with the subprocess module.
 A module is a collection of Python functions that perform a set of tasks. Python
 includes a number of modules in a it's standard library and subprocess is one.
-subprocess.run returns an *object* and the object has properties. 
+subprocess.run returns an *object* and the object has properties.
+
+Also notice that we are using a *named* parameter in the second subprocess call
 </div>
 
-### 
+### More Subprocess
 
 ```python
 out = subprocess.check_output(['ls'])
@@ -291,52 +293,55 @@ except subprocess.CalledProcessError as CP_err:
 
 <div class="notes">
 There is a function that will just return stdout. It does have one drawback that you
-need to be aware of. When Python gets an error it performs something we call 
+need to be aware of. When Python gets an error it performs something we call raising
+an exception and we should handle this if we use it.
+
 </div>
 
-### Working With Files
-
-#### Joining Paths
+### Joining Paths
 
 ```python
 import os
-silverlight_plugin_path = os.path.join("/", \
-    "Library", \
-    "Internet Plug-Ins", \
-    "Silverlight.plugin")
-print(silverlight_plugin_path)
-/Library/Internet Plug-Ins/Silverlight.plugin
+plugin_path = os.path.join("/", "Library", "Internet Plug-Ins")
+print(plugin_path)
 ```
 
 #### Manipulating Paths
 
 ```python
 from os import path
-path.basename(silverlight_plugin_path)
-path.dirname(silverlight_plugin_path)
+path.basename(plugin_path)
+path.dirname(plugin_path)
 path.splitext("com.apple.Safari.plist")
 ```
 
 <div class="notes">
-Let's have a look at using the `os` library on paths and files.
+Let's have a look at using the `os` library on paths and files. Notice in the second
+block I am using a different form of `import`. Here we are importing just one object
+from the `os` module.
 </div>
 
-###
-
-#### Tests on Files
+### Tests on Files
 
 ```python
-path.exists(silverlight_plugin_path)
-path.isdir(silverlight_plugin_path)
-path.islink("/etc")
+who
+
+from os.path import *
+who
+
+exists(silverlight_plugin_path)
+isdir(silverlight_plugin_path)
+islink("/etc")
 ```
+<div class="notes">
+
+</div>
 
 #### glob
 
 ```python
 import glob
-ess = glob.glob("/Applications/Utilities/" \
-    "S*.app")
+ess = glob.glob("/Applications/Utilities/" "S*.app")
 print(ess)
 
 ```
@@ -348,6 +353,7 @@ print(ess)
 </div>
 
 ### Requests
+
 ```python
 import requests
 url = 'https://icanhazdadjoke.com/'
@@ -368,7 +374,7 @@ If we want to talk to a web server there is another module we can use ,`requests
 We can even set the headers for our request easily.
 </div>
 
-###
+### JSON
 
 ```python
 headers = {'Accept': 'application/json'}
@@ -377,12 +383,8 @@ r.text
 r.json()
 r.json()['joke']
 ```
-<div class="notes">
-Because JSON is becoming something of a standard for an API to return requests has
-built-in JSON handling.
-</div>
 
-###
+#### Queries
 
 ```python
 url = 'https://api.openbrewerydb.org/breweries?by_city=new_york'
@@ -398,10 +400,13 @@ r.url
 
 ```
 <div class="notes">
+Because JSON is becoming something of a standard for an API to return requests has
+built-in JSON handling.
+
 We can also get requests to assemble the URL of a query or other parameter.
 </div>
 
-###
+### Bigger Queries
 
 ```python
 query = {'by_city': 'williamsburg'}
@@ -412,6 +417,7 @@ r = requests.get(url, params=query)
 len(r.json())
 r.url
 ```
+
 <div class="notes">
 And our query can be complex and requests does the right thing.
 </div>
@@ -425,12 +431,7 @@ fp = open('example.plist', 'wb')
 plistlib.dump(prop, fp)
 fp.close()
 ```
-<div class="notes">
-There is another library specifically for talking to preference or plist files. Let's
-start by creating a plist file.
-</div>
 
-###
 ```python
 with open('example.plist', 'rb') as fd:
 	pl = plistlib.load(fd)
@@ -444,10 +445,57 @@ with open('example.plist', 'rb') as fd:
 ```
 
 <div class="notes">
+There is another library specifically for talking to preference or plist files. Let's
+start by creating a plist file.
+
 Now we can read it. We can also change an item then write it back.
 </div>
 
+### XML
 
+```python
+auth=('xworld', 'passwd')
+base_url=('https://twxworld.jamfcloud.com/JSSResource/')
+url = base_url + 'categories'
+cat = requests.get(url, auth=auth)
+cat.text
+cat.xml
+
+import xml.etree.ElementTree as ET
+root = ET.fromstring(cat.text)
+categories = root.findall('category')
+for i in categories:
+	print(i.find('id').text, i.find('name').text)
+```
+<div class="notes">
+Now we have a more complex requests call. 
+</div>
+
+### PUT and POST With Requests
+
+```	
+url = base_url + 'categories/id/3'
+cat = requests.get(url, auth=auth)
+root = ET.fromstring(cat.text)
+root.find('name').text
+root.find('name').text = "Changed"
+
+new = ET.tostring(root)
+ret = requests.put(url, auth=auth, data=new)
+ret.status_code
+ret.text
+
+root.find('name').text = 'Inserted'
+root.find('id').text = '0'
+new = ET.tostring(root)
+url = base_url + 'categories/id/0'
+ret = requests.post(url, auth=auth, data=new)
+ret.status_code
+ret.text
+
+```
+<div class="notes">
+</div>
 
 ### Further Places
 

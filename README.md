@@ -1,11 +1,9 @@
-# xworld2017
+# xworld2019
 
 A repo for my workshop at X World 2017 "Charming The Snake"
 
 It contains a bunch of example scripts and the Markdown source and
 reveal.js slideshow for the presentation.
-
-Text
 
 The reveal.js slideshow is created using [pandoc](http://pandoc.org).
 The exact pandoc command can be found in `pandoc.sh`. I have modified
@@ -32,10 +30,8 @@ The `slides_notes.pdf` file is generated using `Marked 2` and
 | File                 | Description                                     |
 | -------------------- | ----------------------------------------------- |
 | Input-Font.zip       | The Input font - used in presentation           |
-| PYTHONPATH.txt       | Line to add to bash profile for PYTHON          |
 | README.md            | This file                                       |
-| XW17-Empty.png       | Background for slides                           |
-| animals/*            | A small example program in Python               |
+| XW19-Empty.png       | Background for slides                           |
 | index.html           | The presentation slides                         |
 | pandoc.sh            | command line to run Pandoc and create slideshow |
 | pandoc-print.sh      | command line to create `print.html`             |
