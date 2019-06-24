@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>slides</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section class="slide level3">
+
+<h4 id="charming-the-snake-python-for-system-admins">Charming The Snake <br/> Python For System Admins</h4>
+<h5 id="tony-williams-systems-engineer">Tony Williams <br/> Systems Engineer</h5>
+<p>Please download http://bit.ly/xw_19</p>
+</section>
+<section id="what-we-will-talk-about" class="slide level3">
+<h3>What We Will Talk About</h3>
+</section>
+<section id="numbers" class="slide level3">
+<h3>Numbers</h3>
+<p>The interpreter acts as a simple calculator: you can type an expression in it and it will write the value. Expression syntax is straightforward: the operators +, -, * and / work just like in most other languages (for example, Pascal or C); parentheses (()) can be used for grouping.</p>
+<p>For example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="op">&gt;&gt;&gt;</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="dv">4</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="op">&gt;&gt;&gt;</span> <span class="dv">50</span> <span class="op">-</span> <span class="dv">5</span> <span class="op">*</span> <span class="dv">6</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="dv">20</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="op">&gt;&gt;&gt;</span> (<span class="dv">50</span> <span class="op">-</span> <span class="dv">5</span>) <span class="op">*</span> <span class="dv">6</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="dv">270</span></a></code></pre></div>
+<aside class="notes">
+<p>Notice that numbers are not enclosed by quotes or anything else.</p>
+</aside>
+</section>
+<section id="numbers-1" class="slide level3">
+<h3>Numbers</h3>
+<pre><code>8 / 5
+8 % 5
+8 / 5.0
+8 / 2.0
+round(8/5.0)
+int(round(8/5.0))
+type(5)
+type(5.0)</code></pre>
+<aside class="notes">
+<p>Let’s work through these examples. To start, there are two sorts of numbers, integers and floating point, with a decimal point. The percent sign is the mod operator. The result of any operation with a floating point number is always a floating point number. The function <code>type</code> returns the type of a number.</p>
+</aside>
+</section>
+<section id="section" class="slide level3">
+<h3></h3>
+<p>The equal sign (=) is used to assign a value to a variable. Afterwards, no result is displayed before the next interactive prompt.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="op">&gt;&gt;&gt;</span> width <span class="op">=</span> <span class="dv">20</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="op">&gt;&gt;&gt;</span> height <span class="op">=</span> <span class="dv">5</span> <span class="op">*</span> <span class="dv">9</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="op">&gt;&gt;&gt;</span> width <span class="op">*</span> height</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="dv">900</span></a></code></pre></div>
+<p>If a variable is not “defined” (assigned a value), trying to use it will give you an error:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="op">&gt;&gt;&gt;</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="op">&gt;&gt;&gt;</span> n  <span class="co"># try to access an undefined variable</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">Traceback (most recent call last):</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">  File <span class="st">&quot;&lt;stdin&gt;&quot;</span>, line <span class="dv">1</span>, <span class="kw">in</span> <span class="op">&lt;</span>module<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="pp">NameError</span>: name <span class="st">&#39;n&#39;</span> <span class="kw">is</span> <span class="kw">not</span> defined</a></code></pre></div>
+</section>
+<section id="section-1" class="slide level3">
+<h3></h3>
+<h4 id="lists-and-iteration">Lists and iteration</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1">a_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">45</span>]</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">a_list[<span class="dv">0</span>]</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">a_list[<span class="op">-</span><span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">a_list[<span class="dv">1</span>:<span class="dv">3</span>]</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="cf">for</span> item <span class="kw">in</span> a_list:</a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">    <span class="bu">print</span>(item)</a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9">mixed <span class="op">=</span> [<span class="dv">4</span>, <span class="st">&quot;Tony&#39;s&quot;</span>, <span class="fl">3.14</span>, <span class="va">True</span>, <span class="st">&#39;bees&#39;</span>]</a>
+<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="cf">for</span> thing <span class="kw">in</span> mixed:</a>
+<a class="sourceLine" id="cb5-11" data-line-number="11">    <span class="bu">print</span> (thing, <span class="bu">type</span>(thing))</a>
+<a class="sourceLine" id="cb5-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb5-13" data-line-number="13">show <span class="op">=</span> <span class="st">&#39;My quote has it</span><span class="ch">\&#39;</span><span class="st">s text: &quot;strings are good&quot;&#39;</span></a>
+<a class="sourceLine" id="cb5-14" data-line-number="14"><span class="bu">print</span>(show)</a>
+<a class="sourceLine" id="cb5-15" data-line-number="15">show2 <span class="op">=</span> <span class="st">&quot;My quote has it&#39;s text: </span><span class="ch">\&quot;</span><span class="st">strings are good</span><span class="ch">\&quot;</span><span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb5-16" data-line-number="16"><span class="bu">print</span>(show2)</a></code></pre></div>
+<aside class="notes">
+<p>Lists are a way of collecting values together. Notice that the first value in the list is number zero. You can count from the end using minus numbers and the colon operator allows you to “slice” the list. A note here on strings - strings are any text enclosed in quotes. You can actually use either single or double quotes to surround them. If you need to use a quote in a string you can escape it with a backslash.</p>
+</aside>
+</section>
+<section id="section-2" class="slide level3">
+<h3></h3>
+<h4 id="moving-on-to-ipython">Moving On To IPython</h4>
+<aside class="notes">
+<p>At this point let’s move on to a better Python interpreter - IPython.</p>
+</aside>
+</section>
+<section id="starting-ipython" class="slide level3">
+<h3>Starting IPython</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">command</th>
+<th style="text-align: left;">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ipython</td>
+<td style="text-align: left;">run IPython</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">jupyter qtconsole</td>
+<td style="text-align: left;">runs ipython in QT window</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">jupyter notebook</td>
+<td style="text-align: left;">runs the IPython notebook server</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ipython –help</td>
+<td style="text-align: left;">IPython man page</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>IPython has sort of been renamed Jupyter, so we use the jupyter name for some functions.</p>
+</aside>
+</section>
+<section id="dictionaries" class="slide level3">
+<h3>Dictionaries</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1">staff_ids <span class="op">=</span> {<span class="st">&#39;Alice&#39;</span>: <span class="dv">312</span>, <span class="st">&#39;Ted&#39;</span>: <span class="dv">519</span>, <span class="st">&#39;Carol&#39;</span>: <span class="dv">781</span>}</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">staff_ids[<span class="st">&#39;Ted&#39;</span>]</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="cf">for</span> key <span class="kw">in</span> staff_ids:</a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">    <span class="bu">print</span>(staff_ids[key])</a>
+<a class="sourceLine" id="cb6-7" data-line-number="7">    </a>
+<a class="sourceLine" id="cb6-8" data-line-number="8">staff_ids[<span class="st">&#39;Ted&#39;</span>] <span class="op">=</span> <span class="dv">783</span></a>
+<a class="sourceLine" id="cb6-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="cf">for</span> key <span class="kw">in</span> staff_ids:</a>
+<a class="sourceLine" id="cb6-11" data-line-number="11">    <span class="bu">print</span> (key, staff_ids[key])</a>
+<a class="sourceLine" id="cb6-12" data-line-number="12">    </a>
+<a class="sourceLine" id="cb6-13" data-line-number="13">hgttg <span class="op">=</span> {<span class="st">&#39;Life&#39;</span>: <span class="va">True</span>, <span class="st">&#39;Meaning&#39;</span>: <span class="dv">42</span>, <span class="st">&#39;Motto&#39;</span>: <span class="st">&quot;Don&#39;t Panic&quot;</span>}</a>
+<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="bu">print</span>(hgttg[<span class="st">&quot;Meaning&quot;</span>])</a></code></pre></div>
+<aside class="notes">
+<p>Our final type are dictionaries. - A key and a value (think of a plist) - Surrounded by “{}” - Unordered - keys - Case sensitive - Unique - New value overwrites</p>
+</aside>
+</section>
+<section id="conditionals" class="slide level3">
+<h3>Conditionals</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1">num <span class="op">=</span> <span class="dv">4</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="cf">if</span> num <span class="op">==</span> <span class="dv">4</span>:</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">    <span class="bu">print</span>(<span class="st">&quot;Four&quot;</span>)</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="cf">if</span> num <span class="op">&gt;</span> <span class="dv">4</span>:</a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">    <span class="bu">print</span>(<span class="st">&quot;Huge&quot;</span>)</a>
+<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb7-9" data-line-number="9">    <span class="bu">print</span>(<span class="st">&quot;Not huge&quot;</span>)</a>
+<a class="sourceLine" id="cb7-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="cf">if</span> num <span class="op">&gt;</span> <span class="dv">3</span>:</a>
+<a class="sourceLine" id="cb7-12" data-line-number="12">    <span class="bu">print</span>(<span class="st">&quot;Biggest&quot;</span>)</a>
+<a class="sourceLine" id="cb7-13" data-line-number="13"><span class="cf">elif</span> num <span class="op">&gt;</span> <span class="dv">2</span>:</a>
+<a class="sourceLine" id="cb7-14" data-line-number="14">    <span class="bu">print</span>(<span class="st">&quot;Big&quot;</span>)</a>
+<a class="sourceLine" id="cb7-15" data-line-number="15"><span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb7-16" data-line-number="16">    <span class="bu">print</span>(<span class="st">&quot;Small&quot;</span>)</a></code></pre></div>
+<aside class="notes">
+<p>Conditionals are where we can make decisions. As you can you can make complex decisions. One thing to note is that unlike some other languages Python does not have a a case statemtn.</p>
+</aside>
+</section>
+<section id="more-loops" class="slide level3">
+<h3>More Loops</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" data-line-number="1">tm <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="cf">while</span> tm <span class="op">&lt;=</span> <span class="dv">10</span>:</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">    <span class="bu">print</span>(tm)</a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">    tm <span class="op">=</span> tm <span class="op">+</span> <span class="dv">1</span></a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">11</span>):</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">    <span class="bu">print</span>(x)</a></code></pre></div>
+<aside class="notes">
+<p>A “while” loop will loop until a condition becomes false. A “for” loop loops across a range of values.</p>
+</aside>
+</section>
+<section id="section-3" class="slide level3">
+<h3></h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" data-line-number="1">collection <span class="op">=</span> [<span class="st">&#39;hey&#39;</span>, <span class="dv">5</span>, <span class="st">&#39;d&#39;</span>]</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="cf">for</span> x <span class="kw">in</span> collection:</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">    <span class="bu">print</span>(x)</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb11-1" data-line-number="1">list_of_lists <span class="op">=</span> [ [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]]</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="cf">for</span> <span class="bu">list</span> <span class="kw">in</span> list_of_lists:</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">    <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">list</span>:</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">        <span class="bu">print</span>(x)</a></code></pre></div>
+</section>
+<section id="functions" class="slide level3">
+<h3>Functions</h3>
+<ul>
+<li>Use <code>def</code> keyword</li>
+<li>May use <code>return</code> keyword</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">def</span> hello_world():</a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">    <span class="bu">print</span>(<span class="st">&quot;Hello World!&quot;</span>)</a>
+<a class="sourceLine" id="cb12-3" data-line-number="3">    </a>
+<a class="sourceLine" id="cb12-4" data-line-number="4">hello_world()</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">def</span> times_two(x):</a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">    <span class="cf">return</span> x <span class="op">*</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb13-3" data-line-number="3">    </a>
+<a class="sourceLine" id="cb13-4" data-line-number="4">times_two(<span class="dv">21</span>)</a></code></pre></div>
+</section>
+<section id="running-commands" class="slide level3">
+<h3>Running Commands</h3>
+<h4 id="subprocess-module">Subprocess module</h4>
+<p>Call external system commands</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="im">import</span> subprocess</a>
+<a class="sourceLine" id="cb14-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb14-3" data-line-number="3">cmd <span class="op">=</span> [<span class="st">&#39;find&#39;</span>, <span class="st">&#39;/usr&#39;</span>, <span class="st">&#39;-iname&#39;</span>, <span class="st">&#39;zip-*&#39;</span>]</a>
+<a class="sourceLine" id="cb14-4" data-line-number="4">subprocess.run(cmd)</a>
+<a class="sourceLine" id="cb14-5" data-line-number="5">ret <span class="op">=</span> subprocess.run(cmd, capture_output<span class="op">=</span><span class="va">True</span>)</a>
+<a class="sourceLine" id="cb14-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb14-7" data-line-number="7">ret.stdout</a>
+<a class="sourceLine" id="cb14-8" data-line-number="8">ret.stderr</a>
+<a class="sourceLine" id="cb14-9" data-line-number="9">ret.returncode</a></code></pre></div>
+<aside class="notes">
+<p>If we want to run a CLI command we can do that with the subprocess module. A module is a collection of Python functions that perform a set of tasks. Python includes a number of modules in a it’s standard library and subprocess is one. subprocess.run returns an <em>object</em> and the object has properties.</p>
+</aside>
+</section>
+<section id="section-4" class="slide level3">
+<h3></h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb15-1" data-line-number="1">out <span class="op">=</span> subprocess.check_output([<span class="st">&#39;ls&#39;</span>])</a>
+<a class="sourceLine" id="cb15-2" data-line-number="2">out</a>
+<a class="sourceLine" id="cb15-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb15-4" data-line-number="4">out <span class="op">=</span> subprocess.check_output([<span class="st">&#39;find&#39;</span>, <span class="st">&#39;shjsd&#39;</span>])</a>
+<a class="sourceLine" id="cb15-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb15-6" data-line-number="6"><span class="cf">try</span>:</a>
+<a class="sourceLine" id="cb15-7" data-line-number="7">    out <span class="op">=</span> subprocess.check_output([<span class="st">&#39;find&#39;</span>, <span class="st">&#39;shjsd&#39;</span>])</a>
+<a class="sourceLine" id="cb15-8" data-line-number="8"><span class="cf">except</span> subprocess.CalledProcessError <span class="im">as</span> CP_err:</a>
+<a class="sourceLine" id="cb15-9" data-line-number="9">    <span class="bu">print</span>(<span class="st">&quot;Error in find: </span><span class="sc">%d</span><span class="st">&quot;</span> <span class="op">%</span> CP_err.returncode)</a></code></pre></div>
+<aside class="notes">
+<p>There is a function that will just return stdout. It does have one drawback that you need to be aware of. When Python gets an error it performs something we call</p>
+</aside>
+</section>
+<section id="working-with-files" class="slide level3">
+<h3>Working With Files</h3>
+<h4 id="joining-paths">Joining Paths</h4>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="im">import</span> os</a>
+<a class="sourceLine" id="cb16-2" data-line-number="2">silverlight_plugin_path <span class="op">=</span> os.path.join(<span class="st">&quot;/&quot;</span>, <span class="op">\</span></a>
+<a class="sourceLine" id="cb16-3" data-line-number="3">    <span class="st">&quot;Library&quot;</span>, <span class="op">\</span></a>
+<a class="sourceLine" id="cb16-4" data-line-number="4">    <span class="st">&quot;Internet Plug-Ins&quot;</span>, <span class="op">\</span></a>
+<a class="sourceLine" id="cb16-5" data-line-number="5">    <span class="st">&quot;Silverlight.plugin&quot;</span>)</a>
+<a class="sourceLine" id="cb16-6" data-line-number="6"><span class="bu">print</span>(silverlight_plugin_path)</a>
+<a class="sourceLine" id="cb16-7" data-line-number="7"><span class="op">/</span>Library<span class="op">/</span>Internet Plug<span class="op">-</span>Ins<span class="op">/</span>Silverlight.plugin</a></code></pre></div>
+<h4 id="manipulating-paths">Manipulating Paths</h4>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="im">from</span> os <span class="im">import</span> path</a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">path.basename(silverlight_plugin_path)</a>
+<a class="sourceLine" id="cb17-3" data-line-number="3">path.dirname(silverlight_plugin_path)</a>
+<a class="sourceLine" id="cb17-4" data-line-number="4">path.splitext(<span class="st">&quot;com.apple.Safari.plist&quot;</span>)</a></code></pre></div>
+<aside class="notes">
+<p>Let’s have a look at using the <code>os</code> library on paths and files.</p>
+</aside>
+</section>
+<section id="section-5" class="slide level3">
+<h3></h3>
+<h4 id="tests-on-files">Tests on Files</h4>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb18-1" data-line-number="1">path.exists(silverlight_plugin_path)</a>
+<a class="sourceLine" id="cb18-2" data-line-number="2">path.isdir(silverlight_plugin_path)</a>
+<a class="sourceLine" id="cb18-3" data-line-number="3">path.islink(<span class="st">&quot;/etc&quot;</span>)</a></code></pre></div>
+<h4 id="glob">glob</h4>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="im">import</span> glob</a>
+<a class="sourceLine" id="cb19-2" data-line-number="2">ess <span class="op">=</span> glob.glob(<span class="st">&quot;/Applications/Utilities/&quot;</span> \</a>
+<a class="sourceLine" id="cb19-3" data-line-number="3">    <span class="st">&quot;S*.app&quot;</span>)</a>
+<a class="sourceLine" id="cb19-4" data-line-number="4"><span class="bu">print</span>(ess)</a></code></pre></div>
+<aside class="notes">
+<ul>
+<li>Equivalent to shell globbing</li>
+<li>Returns matching path(s) as a list</li>
+<li>glob uses the fnmatch module</li>
+</ul>
+</aside>
+</section>
+<section id="requests" class="slide level3">
+<h3>Requests</h3>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="im">import</span> requests</a>
+<a class="sourceLine" id="cb20-2" data-line-number="2">url <span class="op">=</span> <span class="st">&#39;https://icanhazdadjoke.com/&#39;</span></a>
+<a class="sourceLine" id="cb20-3" data-line-number="3">r <span class="op">=</span> requests(url)</a>
+<a class="sourceLine" id="cb20-4" data-line-number="4">r.status_code</a>
+<a class="sourceLine" id="cb20-5" data-line-number="5">r.text</a>
+<a class="sourceLine" id="cb20-6" data-line-number="6">r.headers</a></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb21-1" data-line-number="1">headers <span class="op">=</span> {<span class="st">&#39;Accept&#39;</span>: <span class="st">&#39;text/plain&#39;</span>}</a>
+<a class="sourceLine" id="cb21-2" data-line-number="2">r <span class="op">=</span> requests.get(url, headers<span class="op">=</span>headers)</a>
+<a class="sourceLine" id="cb21-3" data-line-number="3">r.text</a></code></pre></div>
+<aside class="notes">
+<p>If we want to talk to a web server there is another module we can use ,<code>requests</code>. We can even set the headers for our request easily.</p>
+</aside>
+</section>
+<section id="section-6" class="slide level3">
+<h3></h3>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb22-1" data-line-number="1">headers <span class="op">=</span> {<span class="st">&#39;Accept&#39;</span>: <span class="st">&#39;application/json&#39;</span>}</a>
+<a class="sourceLine" id="cb22-2" data-line-number="2">r <span class="op">=</span> requests.get(url, headers<span class="op">=</span>headers)</a>
+<a class="sourceLine" id="cb22-3" data-line-number="3">r.text</a>
+<a class="sourceLine" id="cb22-4" data-line-number="4">r.json()</a>
+<a class="sourceLine" id="cb22-5" data-line-number="5">r.json()[<span class="st">&#39;joke&#39;</span>]</a></code></pre></div>
+<aside class="notes">
+<p>Because JSON is becoming something of a standard for an API to return requests has built-in JSON handling.</p>
+</aside>
+</section>
+<section id="section-7" class="slide level3">
+<h3></h3>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb23-1" data-line-number="1">url <span class="op">=</span> <span class="st">&#39;https://api.openbrewerydb.org/breweries?by_city=new_york&#39;</span></a>
+<a class="sourceLine" id="cb23-2" data-line-number="2">r <span class="op">=</span> requests(url)</a>
+<a class="sourceLine" id="cb23-3" data-line-number="3">r.json()</a>
+<a class="sourceLine" id="cb23-4" data-line-number="4"><span class="cf">for</span> brewery <span class="kw">in</span> r.json():</a>
+<a class="sourceLine" id="cb23-5" data-line-number="5">    <span class="bu">print</span>(brewery[<span class="st">&#39;name&#39;</span>], <span class="st">&quot;Street: &quot;</span>, brewery[<span class="st">&#39;street&#39;</span>])</a>
+<a class="sourceLine" id="cb23-6" data-line-number="6">url <span class="op">=</span> <span class="st">&#39;https://api.openbrewerydb.org/breweries&#39;</span></a>
+<a class="sourceLine" id="cb23-7" data-line-number="7">query <span class="op">=</span> {<span class="st">&#39;by_city&#39;</span>: <span class="st">&#39;new_york&#39;</span>}</a>
+<a class="sourceLine" id="cb23-8" data-line-number="8">r <span class="op">=</span> requests.get(url, params<span class="op">=</span>query)</a>
+<a class="sourceLine" id="cb23-9" data-line-number="9">r.json()</a>
+<a class="sourceLine" id="cb23-10" data-line-number="10">r.url</a></code></pre></div>
+<aside class="notes">
+<p>We can also get requests to assemble the URL of a query or other parameter.</p>
+</aside>
+</section>
+<section id="section-8" class="slide level3">
+<h3></h3>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb24-1" data-line-number="1">query <span class="op">=</span> {<span class="st">&#39;by_city&#39;</span>: <span class="st">&#39;williamsburg&#39;</span>}</a>
+<a class="sourceLine" id="cb24-2" data-line-number="2">r <span class="op">=</span> requests.get(url, params<span class="op">=</span>query)</a>
+<a class="sourceLine" id="cb24-3" data-line-number="3"><span class="bu">len</span>(r.json())</a>
+<a class="sourceLine" id="cb24-4" data-line-number="4">query <span class="op">=</span> {<span class="st">&#39;by_city&#39;</span>: <span class="st">&#39;williamsburg&#39;</span>, <span class="st">&#39;by_state&#39;</span>: <span class="st">&#39;virginia&#39;</span>}</a>
+<a class="sourceLine" id="cb24-5" data-line-number="5">r <span class="op">=</span> requests.get(url, params<span class="op">=</span>query)</a>
+<a class="sourceLine" id="cb24-6" data-line-number="6"><span class="bu">len</span>(r.json())</a>
+<a class="sourceLine" id="cb24-7" data-line-number="7">r.url</a></code></pre></div>
+<aside class="notes">
+<p>And our query can be complex and requests does the right thing.</p>
+</aside>
+</section>
+<section id="plistlib" class="slide level3">
+<h3>plistlib</h3>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="im">import</span> plistlib</a>
+<a class="sourceLine" id="cb25-2" data-line-number="2">prefs <span class="op">=</span> {<span class="st">&#39;fname&#39;</span>: <span class="st">&#39;Tony&#39;</span>, <span class="st">&#39;sname&#39;</span>: <span class="st">&#39;Williams&#39;</span>}</a>
+<a class="sourceLine" id="cb25-3" data-line-number="3">fp <span class="op">=</span> <span class="bu">open</span>(<span class="st">&#39;example.plist&#39;</span>, <span class="st">&#39;wb&#39;</span>)</a>
+<a class="sourceLine" id="cb25-4" data-line-number="4">plistlib.dump(prop, fp)</a>
+<a class="sourceLine" id="cb25-5" data-line-number="5">fp.close()</a></code></pre></div>
+<aside class="notes">
+<p>There is another library specifically for talking to preference or plist files. Let’s start by creating a plist file.</p>
+</aside>
+</section>
+<section id="section-9" class="slide level3">
+<h3></h3>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&#39;example.plist&#39;</span>, <span class="st">&#39;rb&#39;</span>) <span class="im">as</span> fd:</a>
+<a class="sourceLine" id="cb26-2" data-line-number="2">    pl <span class="op">=</span> plistlib.load(fd)</a>
+<a class="sourceLine" id="cb26-3" data-line-number="3">    <span class="bu">print</span>(pl[<span class="st">&#39;fname&#39;</span>])</a>
+<a class="sourceLine" id="cb26-4" data-line-number="4">    </a>
+<a class="sourceLine" id="cb26-5" data-line-number="5">pl[<span class="st">&#39;fname&#39;</span>] <span class="op">=</span> <span class="st">&#39;Anthony&#39;</span></a>
+<a class="sourceLine" id="cb26-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb26-7" data-line-number="7"><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&#39;example.plist&#39;</span>, <span class="st">&#39;rb&#39;</span>) <span class="im">as</span> fd:</a>
+<a class="sourceLine" id="cb26-8" data-line-number="8">    plist.dump(pl, fd)</a></code></pre></div>
+<aside class="notes">
+<p>Now we can read it. We can also change an item then write it back.</p>
+</aside>
+</section>
+<section id="further-places" class="slide level3">
+<h3>Further Places</h3>
+<ul>
+<li><a href="http://www.diveintopython3.net">Dive Into Python 3</a> - A good tutorial for experienced programmers</li>
+<li><a href="https://python.swaroopch.com">A Byte of Python</a> - Good tutorial for beginners</li>
+<li><a href="https://legacy.gitbook.com/book/swaroopch/byte-of-python/details">A Byte of Python PDF</a> - The above as a PDF</li>
+<li><a href="https://wiki.python.org/moin/BeginnersGuide/NonProgrammers">Python for NonProgrammers</a> - An exhaustive list</li>
+</ul>
+</section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // Parallax background image
+        parallaxBackgroundImage: 'XW17-empty.png', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+        // Parallax background size
+        parallaxBackgroundSize: '1920px 1080px', // CSS syntax, e.g. "2100px 900px"
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
