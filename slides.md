@@ -329,12 +329,15 @@ who
 from os.path import *
 who
 
-exists(silverlight_plugin_path)
-isdir(silverlight_plugin_path)
+exists(plugin_path)
+isdir(plugin_path)
 islink("/etc")
 ```
 <div class="notes">
-
+We can also perform tests on a file. Notice a third form of import. If we run the
+IPython command `who` it lists our entire namespace. If we use our new form of import
+we get every member of os.path. This makes the function calls shorter but we have
+to be careful as you can confuse things if you import too many names.
 </div>
 
 #### glob
@@ -468,7 +471,8 @@ for i in categories:
 	print(i.find('id').text, i.find('name').text)
 ```
 <div class="notes">
-Now we have a more complex requests call. 
+Now we have a more complex requests call. requests doesn't handle XML internally so
+we use another module, Elementree. 
 </div>
 
 ### PUT and POST With Requests
