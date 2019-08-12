@@ -3,10 +3,10 @@
 import requests
 import xml.etree.ElementTree as ET
 
-user = 'api_test'
-pwd = 'simple'
+user = ''
+pwd = ''
 auth = (user, pwd)
-url = 'https://suncorpdev.jamfcloud.com/JSSResource/computergroups/id/8'
+url = ''
 
 grp = requests.get(url, auth=auth)
 
